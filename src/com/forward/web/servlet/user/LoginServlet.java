@@ -24,7 +24,8 @@ public class LoginServlet extends HttpServlet {
 		u.setU_pwd(request.getParameter("password"));
 		u = us.login(u);
 	
-		if(u != null){			
+		if(u != null){
+			request.getSession().setAttribute("user", u);
 			response.sendRedirect(request.getContextPath()+"/admin.jsp");
 		}else{
 			request.getSession().setAttribute("state", "用户名或密码错误!");

@@ -28,16 +28,41 @@ public class UserServiceImpl implements UserService {
 		return ud.addRole(role);
 	}
 	@Override
-	public List<Department> selectDepartment() {
-		return ud.selectDepartment();
+	public List<Department> selectAllDepartment() {
+		return ud.selectAllDepartment();
 	}
 	@Override
-	public List<Role> selectRole() {
-		return ud.selectRole();
+	public List<Role> selectAllRole() {
+		return ud.selectAllRole();
 	}
 	@Override
-	public List<User> selectUser() {
-		return ud.selectUser();
+	public List<User> selectAllUser() {
+		return ud.selectAllUser();
+	}
+	@Override
+	public List<User> selectUser(String u_key,String t_key) {
+		return ud.selectUser(u_key,t_key);
+	}
+	@Override
+	public Object selectKindInfo(String kind,int id) {
+		return ud.selectKindInfo(kind,id);
+	}
+	@Override
+	public String updateKindInfo(String kind, Object object) {
+		return ud.updateKindInfo(kind,object);
+		
+	}
+	@Override
+	public String deleteKindInfo(String kind,int id) {
+		return ud.deleteKindInfo(kind,id);
+	}
+	@Override
+	public int selectUserCount() {
+		return ud.selectUserCount();
+	}
+	@Override
+	public List<User> selectUserLimit(int currentPage, int size) {
+		return ud.selectUserLimit(currentPage,size);
 	}
 
 }

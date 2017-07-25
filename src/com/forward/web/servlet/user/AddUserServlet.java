@@ -16,20 +16,21 @@ import com.forward.service.impl.UserServiceImpl;
 public class AddUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private User u = new User();
-	UserServiceImpl usi = new UserServiceImpl();
+	private UserServiceImpl us = new UserServiceImpl();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		
 		Map<String, String[]> map = request.getParameterMap();
 		try {
 			BeanUtils.populate(u, map);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		usi.addUser(u);
-		response.sendRedirect(request.getContextPath()+"/userManage.jsp");
+		us.addUser(u);
+		response.sendRedirect(request.getContextPath()+"/selectAllUser");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

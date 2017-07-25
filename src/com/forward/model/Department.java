@@ -26,11 +26,15 @@ public class Department {
 		this.d_desc = d_desc;
 	}
 	public Timestamp getD_updatetime() {
-		d_updatetime = new Timestamp(System.currentTimeMillis());
 		return d_updatetime;
 	}
 	public void setD_updatetime(Timestamp d_updatetime) {
 		this.d_updatetime = d_updatetime;
+	}
+	@Override
+	public String toString() {
+		return "Department [d_id=" + d_id + ", d_name=" + d_name + ", d_desc=" + d_desc + ", d_updatetime="
+				+ d_updatetime + "]";
 	}
 	
 	

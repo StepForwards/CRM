@@ -34,9 +34,9 @@
 			<table>
 				<tr>
 					<td>用户名</td>
-					<td><input name="u_name" type="text" placeholder="请填写用户名" value="${user.u_name }"></td>
+					<td><input name="u_name" type="text" placeholder="请填写用户名"></td>
 					<td>密码</td>
-					<td><input name="u_pwd" type="password" placeholder="密码" value="${user.u_pwd }" ></td>
+					<td><input name="u_pwd" type="password" placeholder="密码"></td>
 				</tr>
 				
 				<tr>
@@ -60,7 +60,7 @@
 				
 				<tr>
 					<td>性别</td>
-					<td>男<input name="u_sex" type="radio" value="男" checked="checked">女<input name="u_sex" type="radio" value="女"></td>
+					<td>男<input name="u_sex" type="radio" value="男" checked="checked">女<input name="sex" type="radio" value="女"></td>
 					<td>手机号</td>
 					<td><input name="u_phone" type="text" placeholder="请输入手机号"></td>
 				</tr>
@@ -122,7 +122,7 @@
 				
 				<tr>
 					<td>备注</td>
-					<td colspan="3"><textarea rows="5" cols="65" name="u_remark" style="resize: none"></textarea></td>
+					<td colspan="3"><textarea rows="5" cols="65" name="u_remark" resize="none" style="resize: none"></textarea></td>
 				</tr>
 			</table>
 			<input type="submit"><button type="button"><a href="javascript:history.go(-1)" style="text-decoration: none;">返回</a></button>

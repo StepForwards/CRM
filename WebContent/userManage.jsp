@@ -5,13 +5,26 @@
 		%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>用户管理</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>用户管理</title>
+	<link rel="stylesheet" href="<c:url value="/lib/font-awesome/css/font-awesome.css" />">
+	<link rel="stylesheet" href="<c:url value="/css/main.css" />">
+	<style>
+		body{
+			text-align: center;
+		}
+		div{
+			margin: 100px auto;
+		}
+	</style>	
 </head>
 <body>
+<div style="width: 1000px; height: 800px; background-color: white; ">
 	<p style="font-size: 24px;">用户列表</p>
 	<form action="${pageContext.request.contextPath }/selectUser">
 	<font>搜索内容: <input type="text" name="t_key" placeholder="请输入关键字"> 搜索字段:</font>
@@ -20,38 +33,48 @@
 		<option value="u_department">部门</option>
 		<option value="u_role">角色</option>
 	</select>
-		<input type="submit" value="搜索">	
+		<input type="submit" value="搜索" style="background-color: #3388ff;">
 	</form>
 	
-	<form action="${pageContext.request.contextPath }/addUser.jsp">
-		<input type="submit" value="添加用户" style="background-color: #3388ff; float: right;">	
+	<form action="${pageContext.request.contextPath }/selectRoDe">
+		<input type="submit" value="添加用户" style="background-color: #3388ff; margin: 20px auto;">	
 	</form>
-	<table>	
-		<th>序号</th>
-		<th>用户名</th>
-		<th>部门</th>
-		<th>角色</th>
-		<th>手机号</th>
-		<th>邮箱</th>
-		<th>更新时间</th>
-		<th>操作</th>
-		<% 	
-			UserService us = new UserServiceImpl();
-			List<User> list = us.selectUser();
-			
-			for(int i = 0; i < list.size(); i++){
-				out.print("<tr>");
-				out.print("<td>"+(i+1)+"</td>");		
-				out.print("<td>"+list.get(i).getU_name()+"</td>");		
-				out.print("<td>"+list.get(i).getU_departmentid()+"</td>");		
-				out.print("<td>"+list.get(i).getU_roleid()+"</td>");		
-				out.print("<td>"+list.get(i).getU_phone()+"</td>");		
-				out.print("<td>"+list.get(i).getU_mail()+"</td>");		
-				out.print("<td>"+list.get(i).getU_updatetime()+"</td>");		
-				out.print("<td><a>编辑</a> <a>删除</a></td>");		
-				out.print("</tr>");
-			}	
-		%>
+	<table bgcolor="#acacac" style="margin: 0px auto;">	
+		<th bgcolor="orange">ID</th>
+		<th bgcolor="orange">用户名</th>
+		<th bgcolor="orange">部门</th>
+		<th bgcolor="orange">角色</th>
+		<th bgcolor="orange">手机号</th>
+		<th bgcolor="orange">邮箱</th>
+		<th bgcolor="orange">更新时间</th>
+		<th bgcolor="orange">操作</th>
+		<c:forEach items="${list }" var="list">
+			<tr bgcolor="orange">
+				<td>${list.u_id }</td>
+				<td>${list.u_name }</td>
+				<td>${list.u_departmentid }</td>
+				<td>${list.u_roleid }</td>
+				<td>${list.u_phone }</td>
+				<td>${list.u_mail }</td>
+				<td>${list.u_updatetime }</td>
+				<td><a class="fa fa-pencil"></a> | <a class="fa fa-remove" href="${pageContext.request.contextPath }/deleteKindInfo?d_id=${list.u_id }&kind=user"></a></td>
+			</tr>
+		</c:forEach>
+		<c:forEach items="${searchUser }" var="lists">
+			<tr>
+				<td>${lists.u_id }</td>
+				<td>${lists.u_name }</td>
+				<td>${lists.u_departmentid }</td>
+				<td>${lists.u_roleid }</td>
+				<td>${lists.u_phone }</td>
+				<td>${lists.u_mail }</td>
+				<td>${lists.u_updatetime }</td>
+				<td><a class="fa fa-pencil"></a><a class="fa fa-remove"></a></td>
+			</tr>
+		</c:forEach>
+
 	</table>
+	<%@ include file="/page.jsp" %>
+</div>
 </body>
 </html>

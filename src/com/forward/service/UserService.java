@@ -11,9 +11,14 @@ public interface UserService {
 	User login(User user);
 	String addUser(User user);
 	String addDepartment(Department department);
+	String updateKindInfo(String kind,Object object);
+	String deleteKindInfo(String kind,int id);
 	String addRole(Role role);
-	List<Department> selectDepartment();
-	List<Role> selectRole();
-	List<User> selectUser();
-	List<User> selectUser(String t_key);
+	List<Department> selectAllDepartment();
+	Object selectKindInfo(String kind,int id);
+	List<Role> selectAllRole();
+	List<User> selectAllUser();
+	List<User> selectUser(String u_key,String t_key);
+	int selectUserCount();
+	List<User> selectUserLimit(int currentPage, int size);
 }

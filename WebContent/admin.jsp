@@ -20,7 +20,7 @@
             <a target="" href="#">发件箱</a>
 	    </div>
 	    <div class="user">
-	        <a href="#">用户名</a>
+	        <a href="#">${user.u_name }</a>
 	        <a href="#">退出</a>
 	    </div>
     </div>
@@ -136,17 +136,17 @@
 		            	</a>
 		        	</li>
 		            <li>
-		            	<a target="pageBox" href="${pageContext.request.contextPath }/departmentManage.jsp">
+		            	<a target="pageBox" href="${pageContext.request.contextPath }/selectAllDepartment">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;部门管理
 		            	</a>
 		            </li>
 		            <li>
-		            	<a target="pageBox" href="${pageContext.request.contextPath }/roleManage.jsp">
+		            	<a target="pageBox" href="${pageContext.request.contextPath }/selectAllRole">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;角色管理
 		            	</a>
 		            </li>
 		            <li>
-		            	<a target="pageBox" href="${pageContext.request.contextPath }/userManage.jsp">
+		            	<a target="pageBox" href="${pageContext.request.contextPath }/selectAllUser">
 		            		<i class=" fa fa-circle"></i>&nbsp;&nbsp;用户管理
 		            	</a>
 		            </li>
@@ -154,7 +154,7 @@
 	        </li>
 	    </ul>
 	    <div class="right-side">
-	    		<iframe name="pageBox" src="userManage.jsp"></iframe>
+	    		<iframe name="pageBox" src="${pageContext.request.contextPath }/selectAllUser"></iframe>
 		    <div class="footer">
 		    	智游教育 ©2017 河南智游臻龙教育科技有限公司
 		    </div>

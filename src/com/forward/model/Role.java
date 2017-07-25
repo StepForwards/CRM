@@ -26,7 +26,6 @@ public class Role {
 		this.r_desc = r_desc;
 	}
 	public Timestamp getR_updatetime() {
-		r_updatetime = new Timestamp(System.currentTimeMillis());
 		return r_updatetime;
 	}
 	public void setR_updatetime(Timestamp r_updatetime) {

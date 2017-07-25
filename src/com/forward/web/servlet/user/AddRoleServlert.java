@@ -31,7 +31,7 @@ public class AddRoleServlert extends HttpServlet {
 			e.printStackTrace();
 		}
 		us.addRole(role);
-		response.sendRedirect(request.getContextPath()+"/departmentManage.jsp");
+		response.sendRedirect(request.getContextPath()+"/selectAllRole");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

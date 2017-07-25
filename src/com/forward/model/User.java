@@ -24,6 +24,19 @@ public class User {
 	private String u_marry;
 	private String u_remark;
 	private Timestamp u_updatetime;
+	
+	
+	
+	
+	@Override
+	public String toString() {
+		return "User [u_id=" + u_id + ", u_name=" + u_name + ", u_pwd=" + u_pwd + ", u_departmentid=" + u_departmentid
+				+ ", u_roleid=" + u_roleid + ", u_sex=" + u_sex + ", u_phone=" + u_phone + ", u_address=" + u_address
+				+ ", u_age=" + u_age + ", u_telphone=" + u_telphone + ", u_idcard=" + u_idcard + ", u_mail=" + u_mail
+				+ ", u_qq=" + u_qq + ", u_hobby=" + u_hobby + ", u_edu=" + u_edu + ", u_salarycard=" + u_salarycard
+				+ ", u_nation=" + u_nation + ", u_marry=" + u_marry + ", u_remark=" + u_remark + ", u_updatetime="
+				+ u_updatetime + "]";
+	}
 	public int getU_id() {
 		return u_id;
 	}
@@ -139,7 +152,6 @@ public class User {
 		this.u_remark = u_remark;
 	}
 	public Timestamp getU_updatetime() {
-		u_updatetime = new Timestamp(System.currentTimeMillis());
 		return u_updatetime;
 	}
 	public void setU_updatetime(Timestamp u_updatetime) {
