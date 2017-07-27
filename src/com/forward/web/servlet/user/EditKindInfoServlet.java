@@ -1,6 +1,7 @@
 package com.forward.web.servlet.user;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +14,7 @@ import com.forward.model.User;
 import com.forward.service.UserService;
 import com.forward.service.impl.UserServiceImpl;
 
-public class EditDepartmentServlet extends HttpServlet {
+public class EditKindInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserService us = new UserServiceImpl();
 	private String str;
@@ -36,7 +37,11 @@ public class EditDepartmentServlet extends HttpServlet {
 			str = "/editRole.jsp";break;
 		case "user": 
 			User user = (User)us.selectKindInfo(kind,id);
-			request.setAttribute("user", user);
+			request.setAttribute("users", user);
+			List<Department> deList = us.selectAllDepartment();
+			List<Role> roList = us.selectAllRole();
+			request.setAttribute("deList", deList);
+			request.setAttribute("roList", roList);
 			str = "/editUser.jsp";break;
 		}		
 		request.getRequestDispatcher(str).forward(request, response);

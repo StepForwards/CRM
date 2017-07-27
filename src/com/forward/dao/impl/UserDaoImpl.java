@@ -19,15 +19,14 @@ import com.forward.tools.DBUtils;
 public class UserDaoImpl implements UserDao {
 	private User user;
 	private String sql;
-	private QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());
 	
 	@Override
 	public User login(User u) {
 		
+		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());
 		sql = "select u_name,u_pwd from t_user where u_name = ? and u_pwd = ?";
 		try {
 			user = qr.query(sql, new BeanHandler<>(User.class),u.getU_name(),u.getU_pwd());
-			System.out.println(u);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -36,6 +35,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public String addUser(User u) {
+		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());
 		sql = "insert into t_user values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		u.setU_updatetime(new Timestamp(System.currentTimeMillis()));
 		try {
@@ -48,6 +48,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public String addDepartment(Department department) {
+		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());
 		sql = "insert into t_department values(null,?,?,?)";
 		department.setD_updatetime(new Timestamp(System.currentTimeMillis()));
 		try {
@@ -60,6 +61,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public String addRole(Role role) {
+		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());
 		sql = "insert into t_role values(null,?,?,?)";
 		role.setR_updatetime(new Timestamp(System.currentTimeMillis()));
 		try {
@@ -72,6 +74,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<Department> selectAllDepartment() {
+		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());
 		List<Department> list = null;
 		sql = "select * from t_department";
 		try {
@@ -84,6 +87,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<Role> selectAllRole() {
+		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());
 		List<Role> list = null;
 		sql = "select * from t_role";
 		try {
@@ -96,6 +100,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<User> selectAllUser() {
+		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());
 		List<User> list = null;
 		sql = "select * from t_user";
 		try {
@@ -108,11 +113,12 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<User> selectUser(String u_key,String t_key) {
+		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());
 		List<User> list = null;
 		switch(u_key){
 			case "u_name": sql = "select * from t_user where u_name like '%' ? '%' ";break;
-			case "u_department": sql = "select * from t_user where u_department = (select d_id from t_department where d_name like '%' ? '%') ";break;
-			case "u_role": sql = "select * from t_user where u_role like select r_id from t_role where r_name = '%' ? '%' ";break;		
+			case "u_department": sql = "select * from t_user where u_departmentid = (select d_id from t_department where d_name like '%' ? '%') ";break;
+			case "u_role": sql = "select * from t_user where u_roleid = (select r_id from t_role where r_name like '%' ? '%') ";break;		
 		}
 		try {
 		list = qr.query(sql, new BeanListHandler<>(User.class),t_key);
@@ -124,6 +130,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public Object selectKindInfo(String kind,int id) {
+		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());
 		try {
 			switch (kind) {
 			case "department": 
@@ -133,6 +140,8 @@ public class UserDaoImpl implements UserDao {
 				sql = "select * from t_role where r_id = ?";
 				Role role = qr.query(sql, new BeanHandler<>(Role.class),id);return role;
 			case "user": 
+				sql = "select * from t_user where u_id = ?";
+				User user = qr.query(sql, new BeanHandler<>(User.class),id);return user;
 			
 			}
 		} catch (Exception e) {
@@ -143,7 +152,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public String updateKindInfo(String kind,Object object) {
-		
+		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());
 		try {
 			switch (kind) {
 			case "department":
@@ -153,13 +162,17 @@ public class UserDaoImpl implements UserDao {
 				qr.update(sql,department.getD_name(),department.getD_desc(),department.getD_updatetime(),department.getD_id());				
 				break;
 			case "role":
-				sql = "update t_role set d_name = ?, d_desc = ?, d_updatetime = ? where d_id = ?";
+				sql = "update t_role set r_name = ?, r_desc = ?, r_updatetime = ? where r_id = ?";
 				Role role = (Role)object;
 				role.setR_updatetime(new Timestamp(System.currentTimeMillis()));
-				qr.update(sql,role.getR_name(),role.getR_desc(),role.getR_updatetime(),role.getR_id());				
+				qr.update(sql,role.getR_name(),role.getR_desc(),role.getR_updatetime(),role.getR_id());
 				break;
 			case "user":
-				
+				sql = "update t_user set u_name = ?,u_pwd = ?,u_departmentid = ?,u_roleid = ?,u_sex = ?,u_phone = ?,u_address = ?,u_age = ?,u_telphone = ?,u_idcard = ?,u_mail = ?,u_qq = ?,u_hobby = ?,u_edu = ?,u_salarycard = ?,u_nation = ?,u_marry = ?,u_remark = ?,u_updatetime = ? where u_id = ?";
+				User user = (User)object;
+				user.setU_updatetime(new Timestamp(System.currentTimeMillis()));
+				qr.update(sql, user.getU_name(),user.getU_pwd(),user.getU_departmentid(),user.getU_roleid(),user.getU_sex(),user.getU_phone(),user.getU_address(),user.getU_age(),user.getU_telphone(),user.getU_idcard(),user.getU_mail(),user.getU_qq(),user.getU_hobby(),user.getU_edu(),user.getU_salarycard(),user.getU_nation(),user.getU_marry(),user.getU_remark(),user.getU_updatetime(),user.getU_id());
+				break;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -169,6 +182,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public String deleteKindInfo(String kind,int id) {
+		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());
 		switch(kind){
 		case "department": sql = "delete from t_department where d_id = ?";break;
 		case "role": sql = "delete from t_role where r_id = ?";break;
@@ -184,6 +198,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public int selectUserCount() {
+		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());
 		int num = 0;
 		sql = "select count(*) from t_user";
 		try {
@@ -196,8 +211,9 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<User> selectUserLimit(int currentPage, int size) {
+		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());   
 		List<User> list = null;
-		sql = "select * from t_user limit ?,?";
+		sql = "select * from t_user,t_role,t_department where u_departmentid = d_id and u_roleid = r_id limit ?,?";
 		try {
 		list = qr.query(sql, new BeanListHandler<>(User.class),(currentPage-1)*size,size);
 		} catch (Exception e) {

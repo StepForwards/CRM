@@ -18,7 +18,7 @@
 <body>
 <div style="width: 1000px; height: 800px; background-color: white; ">
 	<p style="font-size: 24px;">更新部门</p>
-	<form action="${pageContext.request.contextPath }/updateDepartment">
+	<form action="${pageContext.request.contextPath }/updateKindINfo">
 		<table style="margin: 0 auto;">
 			<tr>
 				<td>部门名称</td>
@@ -30,10 +30,10 @@
 			</tr>
 				<td>部门描述</td>
 				<td>
-					<textarea rows="5" cols="21" name="d_desc" style="width: 800px; height: 300px; margin-bottom: 30px; resize: none;">${department.d_desc }</textarea>	
+					<textarea rows="5" cols="10" name="d_desc" style="width: 800px; height: 300px; margin-bottom: 30px; resize: none;">${department.d_desc }</textarea>	
 				</td>
 		</table>
-		<input type="submit" style="background-color: #3388ff">${stateDepartment }<%session.removeAttribute("stateDepartment"); %>
+		<input type="submit" style="background-color: #3388ff">
 		<button type="button"><a href="javascript:history.go(-1)" style="text-decoration: none;">返回</a></button>		
 	</form>
 </div>	

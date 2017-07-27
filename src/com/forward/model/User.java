@@ -24,19 +24,8 @@ public class User {
 	private String u_marry;
 	private String u_remark;
 	private Timestamp u_updatetime;
-	
-	
-	
-	
-	@Override
-	public String toString() {
-		return "User [u_id=" + u_id + ", u_name=" + u_name + ", u_pwd=" + u_pwd + ", u_departmentid=" + u_departmentid
-				+ ", u_roleid=" + u_roleid + ", u_sex=" + u_sex + ", u_phone=" + u_phone + ", u_address=" + u_address
-				+ ", u_age=" + u_age + ", u_telphone=" + u_telphone + ", u_idcard=" + u_idcard + ", u_mail=" + u_mail
-				+ ", u_qq=" + u_qq + ", u_hobby=" + u_hobby + ", u_edu=" + u_edu + ", u_salarycard=" + u_salarycard
-				+ ", u_nation=" + u_nation + ", u_marry=" + u_marry + ", u_remark=" + u_remark + ", u_updatetime="
-				+ u_updatetime + "]";
-	}
+	private String d_name;
+	private String r_name;
 	public int getU_id() {
 		return u_id;
 	}
@@ -155,8 +144,28 @@ public class User {
 		return u_updatetime;
 	}
 	public void setU_updatetime(Timestamp u_updatetime) {
-		
 		this.u_updatetime = u_updatetime;
+	}
+	public String getD_name() {
+		return d_name;
+	}
+	public void setD_name(String d_name) {
+		this.d_name = d_name;
+	}
+	public String getR_name() {
+		return r_name;
+	}
+	public void setR_name(String r_name) {
+		this.r_name = r_name;
+	}
+	@Override
+	public String toString() {
+		return "Users [u_id=" + u_id + ", u_name=" + u_name + ", u_pwd=" + u_pwd + ", u_departmentid=" + u_departmentid
+				+ ", u_roleid=" + u_roleid + ", u_sex=" + u_sex + ", u_phone=" + u_phone + ", u_address=" + u_address
+				+ ", u_age=" + u_age + ", u_telphone=" + u_telphone + ", u_idcard=" + u_idcard + ", u_mail=" + u_mail
+				+ ", u_qq=" + u_qq + ", u_hobby=" + u_hobby + ", u_edu=" + u_edu + ", u_salarycard=" + u_salarycard
+				+ ", u_nation=" + u_nation + ", u_marry=" + u_marry + ", u_remark=" + u_remark + ", u_updatetime="
+				+ u_updatetime + ", d_name=" + d_name + ", r_name=" + r_name + "]";
 	}
 	
 	

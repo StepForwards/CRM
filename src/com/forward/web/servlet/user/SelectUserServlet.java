@@ -1,7 +1,6 @@
 package com.forward.web.servlet.user;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -25,7 +24,6 @@ public class SelectUserServlet extends HttpServlet {
 		String t_key = request.getParameter("t_key");
 		List<User> list = us.selectUser(u_key,t_key);
 		request.setAttribute("searchUser", list);
-		System.out.println(list.toString());
 		request.getRequestDispatcher("/userManage.jsp").forward(request, response);
 	}
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +20,10 @@
             <a target="" href="#">公告信息</a>
             <a target="" href="#">发件箱</a>
 	    </div>
+	    
 	    <div class="user">
 	        <a href="#">${user.u_name }</a>
-	        <a href="#">退出</a>
+	        <a href="<c:url value="/exit" />">退出</a>
 	    </div>
     </div>
     <div class="main">

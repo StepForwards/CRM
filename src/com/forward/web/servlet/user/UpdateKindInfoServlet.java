@@ -16,7 +16,7 @@ import com.forward.model.User;
 import com.forward.service.UserService;
 import com.forward.service.impl.UserServiceImpl;
 
-public class UpdateDepartmentServlet extends HttpServlet {
+public class UpdateKindInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	UserService us = new  UserServiceImpl();
 	Department department = new Department();
@@ -28,16 +28,20 @@ public class UpdateDepartmentServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		String kind = request.getParameter("kind");
+		String str = null;
 		Map<String, String[]> map = request.getParameterMap();
-		
 		try {
 			switch(kind){		
 			case "department": 
 				BeanUtils.populate(department, map);
+				str = "/selectAllDepartment";
 				us.updateKindInfo(kind,department);break;
-			case "role": BeanUtils.populate(role, map);
+			case "role": 
+				BeanUtils.populate(role, map);
+				str = "/selectAllRole";
 				us.updateKindInfo(kind,role);break;
 			case "user": BeanUtils.populate(user, map);
+				str = "/selectAllUser";
 				us.updateKindInfo(kind,user);break;
 			}
 			
@@ -45,7 +49,7 @@ public class UpdateDepartmentServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		response.sendRedirect(request.getContextPath()+"/selectAllDepartment");
+		response.sendRedirect(request.getContextPath()+str);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

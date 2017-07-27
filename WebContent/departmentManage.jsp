@@ -6,10 +6,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"  %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<m eta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>部门管理</title>
 	<link rel="stylesheet" href="<c:url value="/lib/font-awesome/css/font-awesome.css" />">
 	<link rel="stylesheet" href="<c:url value="/css/main.css" />">
@@ -31,13 +32,13 @@
 		<th bgcolor="orange">部门描述</th>
 		<th bgcolor="orange">更新时间</th>
 		<th bgcolor="orange">操作</th>
-		<c:forEach items="${list }" var="list">
+		<c:forEach items="${list }" var="list" varStatus="status">
 			<tr bgcolor="orange">
-				<td>${list.d_id }</td>
+				<td>${status.count }</td>
 				<td>${list.d_name }</td>
 				<td>${list.d_desc }</td>
-				<td>${list.d_updatetime }</td>
-				<td><a class="fa fa-pencil" href="${pageContext.request.contextPath }/editDepartment?d_id=${list.d_id }&kind=department"></a> | <a class="fa fa-remove" href="${pageContext.request.contextPath }/deleteKindInfo?d_id=${list.d_id }&kind=department"></a></td>
+				<td><fmt:formatDate value="${list.d_updatetime }" type="both" pattern="MM-dd HH:mm"/></td>
+				<td><a class="fa fa-pencil" href="${pageContext.request.contextPath }/editKindInfo?d_id=${list.d_id }&kind=department"></a> | <a class="fa fa-remove" href="${pageContext.request.contextPath }/deleteKindInfo?d_id=${list.d_id }&kind=department"></a></td>
 			</tr>
 		</c:forEach>
 	</table>

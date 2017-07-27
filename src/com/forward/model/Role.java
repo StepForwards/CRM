@@ -31,5 +31,10 @@ public class Role {
 	public void setR_updatetime(Timestamp r_updatetime) {
 		this.r_updatetime = r_updatetime;
 	}
+	@Override
+	public String toString() {
+		return "Role [r_id=" + r_id + ", r_name=" + r_name + ", r_desc=" + r_desc + ", r_updatetime=" + r_updatetime
+				+ "]";
+	}
 	
 }

@@ -101,23 +101,23 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>EditDepartmentServlet</display-name>
-    <servlet-name>EditDepartmentServlet</servlet-name>
-    <servlet-class>com.forward.web.servlet.user.EditDepartmentServlet</servlet-class>
+    <display-name>EditKindInfoServlet</display-name>
+    <servlet-name>EditKindInfoServlet</servlet-name>
+    <servlet-class>com.forward.web.servlet.user.EditKindInfoServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>EditDepartmentServlet</servlet-name>
-    <url-pattern>/editDepartment</url-pattern>
+    <servlet-name>EditKindInfoServlet</servlet-name>
+    <url-pattern>/editKindInfo</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>UpdateDepartmentServlet</display-name>
-    <servlet-name>UpdateDepartmentServlet</servlet-name>
-    <servlet-class>com.forward.web.servlet.user.UpdateDepartmentServlet</servlet-class>
+    <display-name>UpdateKindInfoServlet</display-name>
+    <servlet-name>UpdateKindInfoServlet</servlet-name>
+    <servlet-class>com.forward.web.servlet.user.UpdateKindInfoServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>UpdateDepartmentServlet</servlet-name>
-    <url-pattern>/updateDepartment</url-pattern>
+    <servlet-name>UpdateKindInfoServlet</servlet-name>
+    <url-pattern>/updateKindINfo</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -130,11 +130,21 @@
     <url-pattern>/deleteKindInfo</url-pattern>
   </servlet-mapping>
   <servlet>
-  	<servlet-name>PageServlet</servlet-name>
-  	<servlet-class>com.forward.web.servlet.user.PageServlet</servlet-class>
+    <servlet-name>PageServlet</servlet-name>
+    <servlet-class>com.forward.web.servlet.user.PageServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>PageServlet</servlet-name>
-  	<url-pattern>/page</url-pattern>
+    <servlet-name>PageServlet</servlet-name>
+    <url-pattern>/page</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ExitServlet</display-name>
+    <servlet-name>ExitServlet</servlet-name>
+    <servlet-class>com.forward.web.servlet.user.ExitServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExitServlet</servlet-name>
+    <url-pattern>/exit</url-pattern>
   </servlet-mapping>
 </web-app>
