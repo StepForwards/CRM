@@ -65,7 +65,7 @@
 		<th bgcolor="orange">操作</th>
 		<c:forEach items="${list }" var="list" varStatus="status">
 			<tr bgcolor="orange">
-				<td>${status.count }</td>
+				<td>${status.count+(pageInfo.currentPage-1)*11  }</td>
 				<td>${list.u_name }</td>
 				<td>${list.d_name }</td>
 				<td>${list.r_name }</td>
