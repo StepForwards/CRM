@@ -66,7 +66,7 @@
 		<c:forEach items="${list }" var="list" varStatus="status">
 			<tr bgcolor="orange">
 				<td>${status.count+(pageInfo.currentPage-1)*11  }</td>
-				<td>${list.u_name }</td>
+				<td><a href="<c:url value="selectUserInfo"/>?u_id=${list.u_id}&kind=user" style="text-decoration: none;">${list.u_name }</a></td>
 				<td>${list.d_name }</td>
 				<td>${list.r_name }</td>
 				<td>${list.u_phone }</td>

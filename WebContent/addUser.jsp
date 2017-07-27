@@ -28,10 +28,10 @@
 </head>
 <body>
 
-	<div>
-		<h1 style="color: white">添加用户</h1>
+	<div style="width: 1000px; height: 800px; background-color: white; ">
+		<h1>添加用户</h1>
 		<form action="${pageContext.request.contextPath }/addUser" method="post">
-			<table>
+			<table style="margin: 0 auto;  background-color: gray;">
 				<tr>
 					<td>用户名</td>
 					<td><input name="u_name" type="text" placeholder="请填写用户名" value="${user.u_name }"></td>

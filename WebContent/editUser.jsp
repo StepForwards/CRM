@@ -28,11 +28,11 @@
 </head>
 <body>
 
-	<div>
-		<h1 style="color: white">更新用户</h1>
+	<div  style="width: 1000px; height: 800px; background-color: white; ">
+		<h1>更新用户</h1>
 		<form action="${pageContext.request.contextPath }/updateKindINfo" method="post">
 		<input type="hidden" name="kind" value="user">	
-			<table>
+			<table  style="margin: 0 auto; background-color: gray;">
 				<tr>
 					<td>用户名</td>
 					<td><input type="hidden" name="u_id" value="${users.u_id }" >

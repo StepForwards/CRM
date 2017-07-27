@@ -147,4 +147,14 @@
     <servlet-name>ExitServlet</servlet-name>
     <url-pattern>/exit</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SelectUserInfoServlet</display-name>
+    <servlet-name>SelectUserInfoServlet</servlet-name>
+    <servlet-class>com.forward.web.servlet.user.SelectUserInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SelectUserInfoServlet</servlet-name>
+    <url-pattern>/selectUserInfo</url-pattern>
+  </servlet-mapping>
 </web-app>
