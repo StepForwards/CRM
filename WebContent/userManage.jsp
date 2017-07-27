@@ -71,7 +71,7 @@
 				<td>${list.r_name }</td>
 				<td>${list.u_phone }</td>
 				<td>${list.u_mail }</td>
-				<td><fmt:formatDate value="${list.u_updatetime }" type="both" pattern="MM-dd HH:mm"/></td>
+				<td><fmt:formatDate value="${list.u_updatetime }" type="both" pattern="YYYY-MM-dd HH:mm"/></td>
 				<td><a class="fa fa-pencil" href="${pageContext.request.contextPath }/editKindInfo?d_id=${list.u_id }&kind=user"></a> | <a class="fa fa-remove" href="${pageContext.request.contextPath }/deleteKindInfo?d_id=${list.u_id }&kind=user"></a></td>
 			</tr>
 		</c:forEach>

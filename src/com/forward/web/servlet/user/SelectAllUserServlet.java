@@ -35,6 +35,8 @@ public class SelectAllUserServlet extends HttpServlet {
 		
 		request.setAttribute("pageInfo", pif);
 		request.setAttribute("list", list);
+		request.getSession().removeAttribute("t_key");
+		request.getSession().removeAttribute("u_key");
 		request.getRequestDispatcher("/userManage.jsp").forward(request, response);
 	}
 

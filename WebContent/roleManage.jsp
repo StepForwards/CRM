@@ -37,7 +37,7 @@
 				<td>${status.count }</td>
 				<td>${list.r_name }</td>
 				<td>${list.r_desc }</td>
-				<td><fmt:formatDate value="${list.r_updatetime }" type="both" pattern="MM-dd HH:mm" /></td>
+				<td><fmt:formatDate value="${list.r_updatetime }" type="both" pattern="YYYY-MM-dd HH:mm" /></td>
 				<td><a class="fa fa-pencil" href="${pageContext.request.contextPath }/editKindInfo?d_id=${list.r_id }&kind=role"></a> | <a class="fa fa-remove" href="${pageContext.request.contextPath }/deleteKindInfo?d_id=${list.r_id }&kind=role"></a></td>
 			</tr>
 		</c:forEach>
