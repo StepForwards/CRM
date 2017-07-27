@@ -23,12 +23,12 @@
 			<tr>
 				<td>角色名称</td>
 				<td>				
-					<input type="text" placeholder="请填写角色名称" name="r_name">
+					<input type="text" placeholder="请填写角色名称" name="r_name" style="width: 800px; height: 50px;">
 				</td>
 			</tr>
 				<td>角色描述</td>
 				<td>
-					<textarea rows="10" cols="10" name="r_desc" placeholder="请填写角色描述"></textarea>	
+					<textarea rows="10" cols="10" name="r_desc" placeholder="请填写角色描述" style="width: 800px; height: 300px; margin-bottom: 30px; resize: none; "></textarea>	
 				</td>
 		</table>
 		<input type="submit" style="background-color: #3388ff">${stateDepartment }<%session.removeAttribute("stateDepartment"); %>

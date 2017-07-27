@@ -213,7 +213,7 @@ public class UserDaoImpl implements UserDao {
 	public List<User> selectUserLimit(int currentPage, int size) {
 		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());   
 		List<User> list = null;
-		sql = "select * from t_user,t_role,t_department where u_departmentid = d_id and u_roleid = r_id limit ?,?";
+		sql = "select * from t_user,t_role,t_department where u_departmentid = d_id and u_roleid = r_id  order by u_id asc limit ?,?";
 		try {
 		list = qr.query(sql, new BeanListHandler<>(User.class),(currentPage-1)*size,size);
 		} catch (Exception e) {
