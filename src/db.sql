@@ -184,3 +184,16 @@ INSERT INTO `t_user` VALUES ('168', '孙健波', '104', '4', '4', '男', '1208',
 INSERT INTO `t_user` VALUES ('169', '刘前四', '4032', '9', '9', '女', '9064', '波走路504号', '72', '072172572', '722307245722', '17207229@qq.con', '1720722729', '跑步', '院士', '80723727472', '裕固族', '未婚', '无', '2018-08-28 18:42:42');
 INSERT INTO `t_user` VALUES ('170', '孙山五', '3843', '9', '9', '男', '8686', '森山路549号', '63', '063163563', '632306345632', '16306329@qq.con', '1630632639', '抛铅球', '大学', '80633637463', '赫哲族', '未婚', '无', '2017-07-27 18:42:42');
 INSERT INTO `t_user` VALUES ('171', 'admit', 'admit', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+
+
+
+
+
+select * from t_user,t_role,t_department where u_name like '%张%' and u_departmentid = d_id and u_roleid = r_id limit 0,11;
+select * from t_user where u_name like '%' ? '%' 
+
+
+
+
+
+

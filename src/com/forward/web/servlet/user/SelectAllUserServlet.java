@@ -21,6 +21,8 @@ public class SelectAllUserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		
+		
 		int count = us.selectUserCount();
 		int totalPage = (count+10)/11;
 		int currentPage = 1;

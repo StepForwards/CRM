@@ -27,11 +27,26 @@
 <div style="width: 1000px; height: 800px; background-color: white; ">
 	<p style="font-size: 24px;">用户列表</p>
 	<form action="${pageContext.request.contextPath }/selectUser">
-	<font>搜索内容: <input type="text" name="t_key" placeholder="请输入关键字"> 搜索字段:</font>
+	<font>搜索内容: <input type="text" name="t_key" placeholder="请输入关键字" value="${t_key }"> 搜索字段:</font>
 	<select name="u_key">
-		<option value="u_name">用户名</option>
-		<option value="u_department">部门</option>
-		<option value="u_role">角色</option>
+		<c:choose>
+			<c:when test="${u_key == 'd_name' }">
+				<option value="u_name">用户名</option>
+				<option value="d_name"  selected="selected">部门</option>
+				<option value="r_name">角色</option>	
+			</c:when>
+			<c:when test="${u_key == 'r_name' }">
+				<option value="u_name">用户名</option>
+				<option value="d_name">部门</option>
+				<option value="r_name"  selected="selected">角色</option>	
+			</c:when>
+			<c:otherwise>
+				<option value="u_name">用户名</option>
+				<option value="d_name">部门</option>
+				<option value="r_name">角色</option>	
+			</c:otherwise>
+		</c:choose>
+		
 	</select>
 		<input type="submit" value="搜索" style="background-color: #3388ff;">
 	</form>
@@ -56,18 +71,6 @@
 				<td>${list.r_name }</td>
 				<td>${list.u_phone }</td>
 				<td>${list.u_mail }</td>
-				<td><fmt:formatDate value="${list.u_updatetime }" type="both" pattern="MM-dd HH:mm"/></td>
-				<td><a class="fa fa-pencil" href="${pageContext.request.contextPath }/editKindInfo?d_id=${list.u_id }&kind=user"></a> | <a class="fa fa-remove" href="${pageContext.request.contextPath }/deleteKindInfo?d_id=${list.u_id }&kind=user"></a></td>
-			</tr>
-		</c:forEach>
-		<c:forEach items="${searchUser }" var="lists">
-			<tr bgcolor="orange">
-				<td>${lists.u_id }</td>
-				<td>${lists.u_name }</td>
-				<td>${lists.u_departmentid }</td>
-				<td>${lists.u_roleid }</td>
-				<td>${lists.u_phone }</td>
-				<td>${lists.u_mail }</td>
 				<td><fmt:formatDate value="${list.u_updatetime }" type="both" pattern="MM-dd HH:mm"/></td>
 				<td><a class="fa fa-pencil" href="${pageContext.request.contextPath }/editKindInfo?d_id=${list.u_id }&kind=user"></a> | <a class="fa fa-remove" href="${pageContext.request.contextPath }/deleteKindInfo?d_id=${list.u_id }&kind=user"></a></td>
 			</tr>

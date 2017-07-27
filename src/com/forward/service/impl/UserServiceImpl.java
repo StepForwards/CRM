@@ -64,5 +64,13 @@ public class UserServiceImpl implements UserService {
 	public List<User> selectUserLimit(int currentPage, int size) {
 		return ud.selectUserLimit(currentPage,size);
 	}
+	@Override
+	public int selectUserCountByKey(String u_key, String t_key) {
+		return ud.selectUserCountByKey(u_key,t_key);
+	}
+	@Override
+	public List<User> selectUserLimitByKey(int currentPage, int size, String u_key, String t_key) {
+		return ud.selectUserLimitByKey(currentPage, size, u_key,t_key);
+	}
 
 }

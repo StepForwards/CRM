@@ -26,6 +26,7 @@ public class User {
 	private Timestamp u_updatetime;
 	private String d_name;
 	private String r_name;
+	
 	public int getU_id() {
 		return u_id;
 	}

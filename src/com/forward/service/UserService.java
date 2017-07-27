@@ -21,4 +21,6 @@ public interface UserService {
 	List<User> selectUser(String u_key,String t_key);
 	int selectUserCount();
 	List<User> selectUserLimit(int currentPage, int size);
+	int selectUserCountByKey(String u_key, String t_key);
+	List<User> selectUserLimitByKey(int currentPage, int size, String u_key, String t_key);
 }

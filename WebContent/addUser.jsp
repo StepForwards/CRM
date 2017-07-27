@@ -96,8 +96,12 @@
 							<option>小学</option>
 							<option>初中</option>
 							<option>高中</option>
-							<option>专科</option>
-							<option>本科</option>
+							<option>复习生</option>
+							<option selected="selected">大学</option>
+							<option>硕士</option>
+							<option>博士</option>
+							<option>博士后</option>
+							<option>院士</option>
 						</select>
 					</td>
 				</tr>

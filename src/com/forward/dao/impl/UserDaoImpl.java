@@ -116,7 +116,7 @@ public class UserDaoImpl implements UserDao {
 		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());
 		List<User> list = null;
 		switch(u_key){
-			case "u_name": sql = "select * from t_user where u_name like '%' ? '%' ";break;
+			case "u_name": sql = "select * from t_user,t_role,t_department where u_name like '%' ? '%' and u_departmentid = d_id and u_roleid = r_id limit ?,?";break;
 			case "u_department": sql = "select * from t_user where u_departmentid = (select d_id from t_department where d_name like '%' ? '%') ";break;
 			case "u_role": sql = "select * from t_user where u_roleid = (select r_id from t_role where r_name like '%' ? '%') ";break;		
 		}
@@ -216,6 +216,32 @@ public class UserDaoImpl implements UserDao {
 		sql = "select * from t_user,t_role,t_department where u_departmentid = d_id and u_roleid = r_id limit ?,?";
 		try {
 		list = qr.query(sql, new BeanListHandler<>(User.class),(currentPage-1)*size,size);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	@Override
+	public int selectUserCountByKey(String u_key, String t_key) {
+		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());
+		int num = 0;
+		sql = "select count(*) from t_user,t_role,t_department where "+u_key+" like '%' ? '%' and u_departmentid = d_id and u_roleid = r_id";
+		try {
+		num = qr.query(sql, new ScalarHandler<Long>(),t_key).intValue();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return num;
+	}
+
+	@Override
+	public List<User> selectUserLimitByKey(int currentPage, int size, String u_key, String t_key) {
+		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());   
+		sql = "select * from t_user,t_role,t_department where "+u_key+" like '%' ? '%' and u_departmentid = d_id and u_roleid = r_id limit ?,?";
+		List<User> list = null;
+		try {
+		list = qr.query(sql, new BeanListHandler<>(User.class),t_key,(currentPage-1)*size,size);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
