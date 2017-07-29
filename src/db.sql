@@ -5,6 +5,7 @@ truncate table t_user;
 truncate table t_role;
 truncate table t_department;
 
+select u.*,d_name from t_user u,t_department where u_departmentid = d_id and u_name = 'admin' and u_pwd = 'admin';
 
 INSERT INTO `crm14`.`t_user` (`u_id`, `u_name`, `u_pwd`, `u_departmentid`, `u_roleid`, `u_sex`, `u_phone`, `u_address`, `u_age`, `u_telphone`, `u_idcard`, `u_mail`, `u_qq`, `u_hobby`, `u_edu`, `u_salarycard`, `u_nation`, `u_marry`, `u_remark`, `u_updatetime`) VALUES (null, '于谦', '0000', '2', '4', '男', '13009022243', '紫荆山南路666号', '23', '0371665842', '411721188301245212', '1900602229@qq.con', '1900602229', '打篮球', '本科', '8990653417883442', '汉', '已婚', '无', '2017-07-26 18:42:42');
 INSERT INTO `crm14`.`t_user` (`u_id`, `u_name`, `u_pwd`, `u_departmentid`, `u_roleid`, `u_sex`, `u_phone`, `u_address`, `u_age`, `u_telphone`, `u_idcard`, `u_mail`, `u_qq`, `u_hobby`, `u_edu`, `u_salarycard`, `u_nation`, `u_marry`, `u_remark`, `u_updatetime`) VALUES (null, '陈翔', '0000', '3', '2', '男', '17709066245', '经南三路第八大街', '34', '0371354356', '445212118830127211', '14394435@qq.con', '14394435', '打游戏', '专科', '1780653483442899', '汉', '未婚', '无', '2017-07-26 18:42:42');
@@ -194,6 +195,38 @@ select * from t_user where u_name like '%' ? '%'
 
 
 
+select n.*,u_name,d_name from t_notice n,t_user,t_department where n_userid = u_id and d_id = 8;
+
+select d_id from t_user where u_id = n_userid;
 
 
+select n.*,u_name,d_name 
+from t_notice n,t_user,t_department
+where n_userid = u_id
+and n_departmentid = d_id
+and d_id = 8
+and n_theme like '%升%'
+or
+(n_userid = u_id
+and n_departmentid = 0
+and n_theme like '%升%'
+and d_id = 
+(select u_departmentid from t_user where u_id = 
+(select n_userid from t_notice where n_departmentid = 0)
+)
+) limit 0,4;
+
+
+
+select d_id from t_user where u_id = (select n_userid from t_notice where n_departmentid = 0);
+
+
+
+
+select n.*,u_name,d_name 
+from t_notice n,t_user,t_department
+where n_userid = u_id
+and n_departmentid = d_id
+and n_id = 30
+and n_departmentid = 8;
 

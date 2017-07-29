@@ -11,8 +11,8 @@
 
 <div>
 共有 ${pageInfo.totalDataCount } 条记录，第 ${pageInfo.currentPage}/${pageInfo.totalPage} 页
-
-<div style=" margin-right: 10px;">
+<!-- -->
+<div style=" float: right; margin-right: 10px;">
 <c:choose>
 <c:when test="${pageInfo.currentPage != 1 }">
 

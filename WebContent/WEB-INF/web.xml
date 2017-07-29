@@ -157,4 +157,54 @@
     <servlet-name>SelectUserInfoServlet</servlet-name>
     <url-pattern>/selectUserInfo</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NoticeListServlet</display-name>
+    <servlet-name>NoticeListServlet</servlet-name>
+    <servlet-class>com.forward.web.servlet.notice.NoticeListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NoticeListServlet</servlet-name>
+    <url-pattern>/noticeList</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddNoticeServlet</display-name>
+    <servlet-name>AddNoticeServlet</servlet-name>
+    <servlet-class>com.forward.web.servlet.notice.AddNoticeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddNoticeServlet</servlet-name>
+    <url-pattern>/addNotice</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteNoticeServlet</display-name>
+    <servlet-name>DeleteNoticeServlet</servlet-name>
+    <servlet-class>com.forward.web.servlet.notice.DeleteNoticeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteNoticeServlet</servlet-name>
+    <url-pattern>/deleteNotice</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateNoticeServlet</display-name>
+    <servlet-name>UpdateNoticeServlet</servlet-name>
+    <servlet-class>com.forward.web.servlet.notice.UpdateNoticeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateNoticeServlet</servlet-name>
+    <url-pattern>/updateNotice</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NoticeInfoServlet</display-name>
+    <servlet-name>NoticeInfoServlet</servlet-name>
+    <servlet-class>com.forward.web.servlet.notice.NoticeInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NoticeInfoServlet</servlet-name>
+    <url-pattern>/noticeInfo</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -34,9 +34,9 @@
 			<table style="margin: 0 auto;  background-color: gray;">
 				<tr>
 					<td>用户名</td>
-					<td><input name="u_name" type="text" placeholder="请填写用户名" value="${user.u_name }"></td>
+					<td><input name="u_name" type="text" placeholder="请填写用户名" value=""></td>
 					<td>密码</td>
-					<td><input name="u_pwd" type="password" placeholder="密码" value="${user.u_pwd }" ></td>
+					<td><input name="u_pwd" type="password" placeholder="密码" value="" ></td>
 				</tr>
 				
 				<tr>

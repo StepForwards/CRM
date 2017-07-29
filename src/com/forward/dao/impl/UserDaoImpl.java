@@ -24,7 +24,7 @@ public class UserDaoImpl implements UserDao {
 	public User login(User u) {
 		
 		QueryRunner qr  = new QueryRunner(DBUtils.getDataSource());
-		sql = "select u_name,u_pwd from t_user where u_name = ? and u_pwd = ?";
+		sql = "select u.*,d_name from t_user u,t_department where u_departmentid = d_id and u_name = ? and u_pwd = ?";
 		try {
 			user = qr.query(sql, new BeanHandler<>(User.class),u.getU_name(),u.getU_pwd());
 		} catch (Exception e) {
