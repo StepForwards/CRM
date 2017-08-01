@@ -18,7 +18,6 @@ import com.forward.service.NoticeService;
 import com.forward.service.UserService;
 import com.forward.service.impl.NoticeServiceImpl;
 import com.forward.service.impl.UserServiceImpl;
-import com.forward.tools.MyBeanUtils;
 
 
 public class AddNoticeServlet extends HttpServlet {
@@ -42,16 +41,22 @@ public class AddNoticeServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		Map<String, String[]> map = request.getParameterMap();
 		Notice notice = new Notice();
+		Map<String, String[]> map = request.getParameterMap();
+		
+		notice.setN_begintime(Timestamp.valueOf(request.getParameter("n_begintime0").replace("T", " ")+":00"));
+		notice.setN_endtime(Timestamp.valueOf(request.getParameter("n_endtime0").replace("T", " ")+":00"));
 		
 		try{
-			MyBeanUtils.populate(notice, map);
+			BeanUtils.populate(notice, map);
 			ns.addNotice(notice);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		
+		
 		response.sendRedirect(request.getContextPath()+"/noticeList");
+		
 	}
 
 }

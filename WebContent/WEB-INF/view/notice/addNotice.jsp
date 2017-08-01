@@ -19,11 +19,11 @@
 					<td>发布时间<input type="hidden" name="n_userid" value="${user.u_id }">
 					</td>
 					<td class="control">
-						<input type="date" name="n_begintime" min="<fmt:formatDate value="${nowTime }" type="both" pattern="yyyy-MM-dd" />" >
+						<input type="datetime-local" name="n_begintime0" min="<fmt:formatDate value="${nowTime }" type="both" pattern="yyyy-MM-dd" />" >
 					</td>
 					<td>截止时间</td>
 					<td class="control">
-						<input type="date" name="n_endtime" min="<fmt:formatDate value="${nowTime }" type="both" pattern="yyyy-MM-dd" />" >
+						<input type="datetime-local" name="n_endtime0" min="<fmt:formatDate value="${nowTime }" type="both" pattern="yyyy-MM-dd" />" >
 					</td>
 				</tr>
 				<tr>

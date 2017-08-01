@@ -1,7 +1,6 @@
 package com.forward.web.servlet.notice;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
 
@@ -10,13 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.beanutils.BeanUtils;
+
 import com.forward.model.Department;
 import com.forward.model.Notice;
 import com.forward.service.NoticeService;
 import com.forward.service.UserService;
 import com.forward.service.impl.NoticeServiceImpl;
 import com.forward.service.impl.UserServiceImpl;
-import com.forward.tools.MyBeanUtils;
 
 public class UpdateNoticeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -42,7 +42,7 @@ public class UpdateNoticeServlet extends HttpServlet {
 		Map<String, String[]> map = request.getParameterMap();
 		Notice notice = new Notice();
 		try {
-			MyBeanUtils.populate(notice, map);
+			BeanUtils.populate(notice, map);
 			ns.updateNoticeById(notice);
 		} catch (Exception e) {
 			e.printStackTrace();

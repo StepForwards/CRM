@@ -9,6 +9,16 @@
 <title>公告管理 - 智游客户关系管理系统</title>
 <link rel="stylesheet" href="<c:url value="/lib/font-awesome/css/font-awesome.css" />">
 <link rel="stylesheet" href="<c:url value="/css/main.css" />">
+
+<script type="text/javascript">
+		function deleteConfirm(n_id,page) {
+			var c = confirm("确定删除吗?");
+			if(c == true){
+				document.location="deleteNotice?id="+n_id+"&page="+page;
+			}
+		}
+</script>
+
 </head>
 <body>
 	<div class="box">
@@ -56,12 +66,13 @@
                 	</c:choose>
                			 
                 </a></td>
-                <td><fmt:formatDate value="${notice.n_begintime }" type="both" pattern="YYYY-MM-dd"/></td>
-                <td><fmt:formatDate value="${notice.n_endtime }" type="both" pattern="YYYY-MM-dd"/></td>
+                <td><fmt:formatDate value="${notice.n_begintime }" type="both" pattern="YYYY-MM-dd HH:mm"/></td>
+                <td><fmt:formatDate value="${notice.n_endtime }" type="both" pattern="YYYY-MM-dd HH:mm"/></td>
                  <td>
                 	<a class="fa fa-pencil" title="编辑" href="<c:url value="/updateNotice?id="/>${notice.n_id}"></a>
                 	&nbsp;&nbsp;
-                	<a class="fa fa-remove" title="删除" href="<c:url value="/deleteNotice?id="/>${notice.n_id}&page=${pageInfo.currentPage}"></a>
+                	<a class="fa fa-remove" title="删除" onclick="deleteConfirm(${notice.n_id},${pageInfo.currentPage})" ></a>
+                	<%-- href="<c:url value="/deleteNotice?id="/>${notice.n_id}&page=${pageInfo.currentPage}" --%>
                 </td>
             </tr>
             </c:forEach>

@@ -205,16 +205,17 @@ from t_notice n,t_user,t_department
 where n_userid = u_id
 and n_departmentid = d_id
 and d_id = 8
-and n_theme like '%升%'
+and n_theme like '%%'
 or
 (n_userid = u_id
 and n_departmentid = 0
-and n_theme like '%升%'
+and n_theme like '%%'
 and d_id = 
-(select u_departmentid from t_user where u_id = 
-(select n_userid from t_notice where n_departmentid = 0)
+any (select u_departmentid from t_user where u_id = 
+any (select n_userid from t_notice where n_departmentid = 0)
 )
-) limit 0,4;
+) limit 0,15;
+
 
 
 

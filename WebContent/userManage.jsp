@@ -15,26 +15,27 @@
 	<link rel="stylesheet" href="<c:url value="/lib/font-awesome/css/font-awesome.css" />">
 	<link rel="stylesheet" href="<c:url value="/css/main.css" />">
 	<style>
-		body{
-			text-align: center;
-		}
+		
 		div{
-			margin: 100px auto;
+			margin: 0px auto;
 		}
 	</style>	
 	<script type="text/javascript">
 		function deleteConfirm(del) {
 			var c = confirm("确定删除吗?");
 			if(c == true){
-				document.location="deleteKindInfo?d_id="+del+"&kind=user";
+				/* document.getElementById("del").href=""; */
+				document.location="deleteKindInfo?d_id="+del+"&kind=user"; 
 			}
 		}
 	</script>
 </head>
 <body>
 <div style="width: 1000px; height: 800px; background-color: white; ">
+	
+	<div style="width: 800px;">
 	<p style="font-size: 24px;">用户列表</p>
-	<form action="${pageContext.request.contextPath }/selectUser">
+	<form action="${pageContext.request.contextPath }/selectUser" style="float: left;">
 	<font>搜索内容: <input type="text" name="t_key" placeholder="请输入关键字" value="${t_key }"> 搜索字段:</font>
 	<select name="u_key">
 		<c:choose>
@@ -59,10 +60,12 @@
 		<input type="submit" value="搜索" style="background-color: #3388ff;">
 	</form>
 	
+	
 	<form action="${pageContext.request.contextPath }/selectRoDe">
-		<input type="submit" value="添加用户" style="background-color: #3388ff; margin: 20px auto;">	
+		<input type="submit" value="添加用户" style="background-color: #3388ff; margin-bottom: 10px; float: right;">	
 	</form>
-	<table bgcolor="#acacac" style="margin: 0px auto;">	
+	
+	<table bgcolor="#acacac" style="margin: 40px auto; width: 100%;">	
 		<th bgcolor="orange">序号</th>
 		<th bgcolor="orange">用户名</th>
 		<th bgcolor="orange">部门</th>
@@ -81,14 +84,14 @@
 				<td>${list.u_mail }</td>
 				<td><fmt:formatDate value="${list.u_updatetime }" type="both" pattern="YYYY-MM-dd HH:mm"/></td>
 				<td><a class="fa fa-pencil" href="${pageContext.request.contextPath }/editKindInfo?d_id=${list.u_id }&kind=user"></a> 
-					| <a onclick="deleteConfirm(${list.u_id })" class="fa fa-remove" href="#" ></a>
+					| <a id="del" onclick="deleteConfirm(${list.u_id })" class="fa fa-remove" href="#" ></a>
 					<%-- href="${pageContext.request.contextPath }/deleteKindInfo?d_id=${list.u_id }&kind=user" --%>
 				</td>
 			</tr>
 		</c:forEach>
-
 	</table>
 	<%@ include file="/page.jsp" %>
+	</div>
 </div>
 </body>
 </html>

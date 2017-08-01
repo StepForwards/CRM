@@ -12,7 +12,7 @@ public class MyBeanUtils {
 	
 	 static{
 	        DateConverter converter = new DateConverter();
-	        converter.setPattern("yyyy-MM-dd");
+	        converter.setPattern("yyyy-MM-dd hh:mm");
 	        ConvertUtils.register(converter, Timestamp.class);
 	    }
 	    public static void populate(Object obj,Map<String,String[]> map) throws IllegalAccessException, InvocationTargetException {

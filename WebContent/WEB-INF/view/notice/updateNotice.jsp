@@ -5,13 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>发布公告 - 智游客户关系管理系统</title>
+<title>更新公告 - 智游客户关系管理系统</title>
 <link rel="stylesheet" href="<c:url value="/lib/font-awesome/css/font-awesome.css" />">
 <link rel="stylesheet" href="<c:url value="/css/main.css" />">
 </head>
 <body>
 	<div class="box">
-		<h3>发布公告</h3>
+		<h3>更新公告</h3>
 		<form action="<c:url value="/updateNotice"/>" method="post">
 			<table class="form-table">
 				<tr>
@@ -20,11 +20,11 @@
 					<input type="hidden" name="n_userid" value="${user.u_id }">
 					</td>
 					<td class="control">
-						<input type="date" name="n_begintime" value="<fmt:formatDate  value="${notice.n_begintime }" type="both" pattern="YYYY-MM-dd"/>" >
+						<input type="text" name="n_begintime" value="<fmt:formatDate  value="${notice.n_begintime }" type="both" pattern="yyyy-MM-dd HH:mm:ss"/>" >
 					</td>
 					<td>截止时间</td>
 					<td class="control">
-						<input type="date" name="n_endtime" value="<fmt:formatDate  value="${notice.n_endtime }" type="both" pattern="YYYY-MM-dd"/>" >
+						<input type="text" name="n_endtime" value="<fmt:formatDate  value="${notice.n_endtime }" type="both" pattern="yyyy-MM-dd HH:mm:ss"/>" >
 					</td>
 				</tr>
 				<tr>
