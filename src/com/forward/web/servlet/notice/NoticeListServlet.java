@@ -40,7 +40,6 @@ public class NoticeListServlet extends HttpServlet {
 		
 		//分页
 		String page = request.getParameter("page");
-		System.out.println(page);
 		int currentPage = 1;
 		if(page != null){
 			currentPage = Integer.parseInt(page);

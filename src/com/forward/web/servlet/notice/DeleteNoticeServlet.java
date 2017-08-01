@@ -20,9 +20,7 @@ public class DeleteNoticeServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		String n_id = request.getParameter("id");
 		ns.deleteNoticeById(n_id);
-		request.getRequestDispatcher("/noticeList").forward(request, response);
-		
-		//response.sendRedirect(request.getContextPath()+"/noticeList");
+		request.getRequestDispatcher("/noticeList").forward(request, response);	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

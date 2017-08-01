@@ -22,6 +22,14 @@
 			margin: 100px auto;
 		}
 	</style>
+	<script type="text/javascript">
+		function deleteConfirm(del) {
+			var c = confirm("确定删除吗?");
+			if(c == true){
+				document.location="deleteKindInfo?d_id="+del+"&kind=department";
+			}
+		}
+	</script>
 </head>
 <body>
 <div style="width: 1000px; height: 800px; background-color: white; ">
@@ -38,7 +46,9 @@
 				<td>${list.d_name }</td>
 				<td>${list.d_desc }</td>
 				<td><fmt:formatDate value="${list.d_updatetime }" type="both" pattern="YYYY-MM-dd HH:mm"/></td>
-				<td><a class="fa fa-pencil" href="${pageContext.request.contextPath }/editKindInfo?d_id=${list.d_id }&kind=department"></a> | <a class="fa fa-remove" href="${pageContext.request.contextPath }/deleteKindInfo?d_id=${list.d_id }&kind=department"></a></td>
+				<td><a class="fa fa-pencil" href="${pageContext.request.contextPath }/editKindInfo?d_id=${list.d_id }&kind=department"></a> 
+				| <a onclick="deleteConfirm(${list.d_id })" class="fa fa-remove" href="#"></a>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>

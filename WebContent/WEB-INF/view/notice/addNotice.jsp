@@ -1,5 +1,7 @@
+<%@page import="java.sql.Timestamp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,11 +19,11 @@
 					<td>发布时间<input type="hidden" name="n_userid" value="${user.u_id }">
 					</td>
 					<td class="control">
-						<input type="date" name="n_begintime" >
+						<input type="date" name="n_begintime" min="<fmt:formatDate value="${nowTime }" type="both" pattern="yyyy-MM-dd" />" >
 					</td>
 					<td>截止时间</td>
 					<td class="control">
-						<input type="date" name="n_endtime">
+						<input type="date" name="n_endtime" min="<fmt:formatDate value="${nowTime }" type="both" pattern="yyyy-MM-dd" />" >
 					</td>
 				</tr>
 				<tr>

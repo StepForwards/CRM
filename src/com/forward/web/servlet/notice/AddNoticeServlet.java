@@ -1,6 +1,7 @@
 package com.forward.web.servlet.notice;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
@@ -29,8 +30,9 @@ public class AddNoticeServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-		
+		Timestamp nowTime = new Timestamp(System.currentTimeMillis());
 		List<Department> departmentList = ds.selectAllDepartment();
+		request.setAttribute("nowTime", nowTime);
 		request.setAttribute("departmentList", departmentList);
 		request.getRequestDispatcher("/WEB-INF/view/notice/addNotice.jsp").forward(request, response);
 	}
