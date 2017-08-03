@@ -99,27 +99,27 @@
 	        <li class="sub-menu">
 		        <ul>
 		            <li>
-		            	<a target="" href="#">
+		            	<a target="pageBox" href="<c:url value="writeMail"/>">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;写邮件
 		            	</a>
 		           	</li>
 		            <li>
-		            	<a target="" href="#">
+		            	<a target="pageBox" href="<c:url value="inboxMailList?m_receivestatus=1"/>">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;收件箱
 		            	</a>
 		           	</li>
 		            <li>
-		            	<a target="" href="#">
+		            	<a target="pageBox" href="<c:url value="sendMailList?m_sendstatus=1"/>">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;发件箱
 		            	</a>
 		            </li>
 		            <li>
-		            	<a target="" href="#">
+		            	<a target="pageBox" href="<c:url value="draftsMailList?m_sendstatus=2"/>">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;草稿箱
 		            	</a>
 		            </li>
 		             <li>
-		            	<a target="" href="#">
+		            	<a target="pageBox" href="<c:url value="dustbinMailList?m_sendstatus=3"/>">
 		            		<i class=" fa fa-circle-thin"></i>&nbsp;&nbsp;垃圾箱
 		            	</a>
 		            </li>

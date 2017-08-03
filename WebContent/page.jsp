@@ -19,7 +19,7 @@
 <c:choose>
 <c:when test="${pageInfo.currentPage != 1 }">
 
-<a href="${pageInfo.servletPath}${pageInfo.currentPage -1 }">上一页</a>
+<a href="${pageInfo.servletPath}${pageInfo.currentPage -1 } " >上一页</a>
 
 </c:when>
 
@@ -38,7 +38,7 @@
 	<a style="color: red;">${status.index}</a>
 	</c:when>
 	<c:otherwise>
-	<a href="${pageInfo.servletPath}${status.index }">${status.index}</a>
+	<a href="${pageInfo.servletPath}${status.index }" >${status.index}</a>
 	</c:otherwise>
 </c:choose>
 </c:forEach>
@@ -46,7 +46,7 @@
 <c:choose>
 <c:when test="${pageInfo.currentPage != pageInfo.totalPage }">
 
-<a href="${pageInfo.servletPath}${pageInfo.currentPage +1 }">下一页</a>
+<a href="${pageInfo.servletPath}${pageInfo.currentPage +1 }" >下一页</a>
 
 </c:when>
 
