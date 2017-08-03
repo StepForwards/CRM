@@ -20,6 +20,14 @@
 		function page(){
 			document.getElementById("search").submit();
 		}
+		
+		window.onload = function () {
+			var mail = window.parent.document.getElementsByName("mail");
+			for (var i = 0; i < mail.length; i++) {
+				mail[i].setAttribute("class"," fa fa-circle-thin");
+			}
+			window.parent.document.getElementById("outbox").setAttribute("class"," fa fa-circle");
+		}
 </script>
 
 </head>

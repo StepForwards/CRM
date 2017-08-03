@@ -205,10 +205,11 @@ public class MailDaoImpl implements MailDao {
 		QueryRunner qr = new QueryRunner(DBUtils.getDataSource());
 		List<Mail> mailList = null;
 		String sql = "SELECT "
-				+ "m.*, u_name "
+				+ "m.*, a.u_name r_name,b.u_name s_name "
 				+ "FROM "
 				+ "t_mail m "
-				+ "LEFT JOIN t_user ON m_receiveid = u_id "
+				+ "LEFT JOIN t_user a ON m_receiveid = a.u_id  "
+				+ "LEFT JOIN t_user b ON m_sendid = b.u_id  "
 				+ "WHERE "
 				+ mailSearchField +" LIKE '%' ? '%'  "
 				+ "AND m_sendid = ? "

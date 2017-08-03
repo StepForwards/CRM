@@ -40,7 +40,7 @@
 					<font>搜索内容: <input type="text" name="dustbinMailKeyWord" placeholder="请输入关键字" value="${dustbinMailKeyWord }"> 搜索字段:</font>
 					<select name="dustbinMailSearchField">
 								<option selected="selected" value="m_theme" ${dustbinMailSearchField eq "m_theme" ? "selected" : ""}>主题</option>
-								<option value="u_name" ${dustbinMailSearchField eq "m_receiveid" ? "selected" : ""}>收件人</option>
+								<option value="a.u_name" ${dustbinMailSearchField eq "m_receiveid" ? "selected" : ""}>收件人</option>
 					</select>
 					<input type="submit" value="搜索" id="search" class="btn btn-primary">
 				</form>
@@ -53,6 +53,7 @@
             <tr>
                 <th>序号</th>
                 <th>收件人</th>
+                <th>发件人</th>
                 <th>主题</th>
                 <th>发送时间</th>
                 <th>操作</th>
@@ -60,7 +61,8 @@
             <c:forEach var="mail" items="${dustbinMailList }" varStatus="status">
             <tr>
                 <td>${status.count + (pageInfo.currentPage - 1)*15 }</td>
-                <td>${mail.u_name }</td>
+                <td>${mail.r_name }</td>
+                <td>${mail.s_name }</td>
                 <td><a href="<c:url value="/mailInfo?m_id="/>${mail.m_id }">
 						 	${mail.m_theme }
                 </a></td>
