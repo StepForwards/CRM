@@ -33,7 +33,6 @@
     <url-pattern>*.jsp</url-pattern>
   </filter-mapping>
   
-  
   <filter>
     <display-name>AutoLoginFilter</display-name>
     <filter-name>AutoLoginFilter</filter-name>
