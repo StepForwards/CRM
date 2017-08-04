@@ -1,8 +1,12 @@
 package com.forward.model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class User {
+import javax.servlet.http.HttpSessionActivationListener;
+import javax.servlet.http.HttpSessionEvent;
+
+public class User implements HttpSessionActivationListener,Serializable{
 	
 	private int u_id;
 	private String u_name;
@@ -168,8 +172,6 @@ public class User {
 				+ ", u_nation=" + u_nation + ", u_marry=" + u_marry + ", u_remark=" + u_remark + ", u_updatetime="
 				+ u_updatetime + ", d_name=" + d_name + ", r_name=" + r_name + "]";
 	}
-	
-	
 	
 	
 }

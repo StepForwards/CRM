@@ -3,6 +3,7 @@ package com.forward.web.servlet.user;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,14 +19,24 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		User u = new User();
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		u.setU_name(request.getParameter("username"));
-		u.setU_pwd(request.getParameter("password"));
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		String autoLogin = request.getParameter("autoLogin");
+		u.setU_name(username);
+		u.setU_pwd(password);
 		u = us.login(u);
 	
 		if(u != null){
 			request.getSession().setAttribute("user", u);
+			if(autoLogin != null){
+				Cookie userNameCookie = new Cookie("userName",u.getU_name());
+				Cookie passwordCookie = new Cookie("password",u.getU_pwd());
+				userNameCookie.setMaxAge(1000*60);
+				passwordCookie.setMaxAge(1000*60);
+				response.addCookie(userNameCookie);
+				response.addCookie(passwordCookie);
+			}
+		
 			response.sendRedirect(request.getContextPath()+"/admin.jsp");
 		}else{
 			request.getSession().setAttribute("state", "用户名或密码错误!");

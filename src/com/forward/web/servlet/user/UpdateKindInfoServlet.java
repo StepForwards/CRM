@@ -22,7 +22,7 @@ public class UpdateKindInfoServlet extends HttpServlet {
 	Department department = new Department();
 	Role role = new Role();
 	User user = new User();
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");

@@ -30,7 +30,7 @@ public class MailServiceImpl implements com.forward.service.MailService {
 	@Override
 	public void deleteSendMail(String status,String m_sendstatus,String m_id) {
 		
-		md.deleteSendMail(status,m_sendstatus,m_id);
+		md.deleteSendMail(status, m_sendstatus, m_id);
 	}
 
 	@Override

@@ -21,7 +21,7 @@
             <div style="text-align: center;">
             <font color="red">${state }</font><%session.removeAttribute("state"); %>
             </div>
-            <div>
+            <div><input type="checkbox" name="autoLogin" style="width: 16px;height: 14px">自动登录 
                 <input type="submit" value="登录">
             </div>
         </form>
